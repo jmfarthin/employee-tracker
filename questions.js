@@ -22,13 +22,22 @@ class ListQuestion extends Question {
 }
 
 // question arrays for inquirer prompt--each array 
-const menuQuestion = [new ListQuestion("choice", "What would you like to do?", ["Add Department", "View Department", "Exit"])]
-const addDepartmentQuestions = [new InputQuestion("department_name", "What will be the new department?")]
-const addRoleQuestions = [new InputQuestion("title", "What will be the new role title?"), new InputQuestion("salary", "What will be the role salary in numbers?")]
+const menuQuestion = [new ListQuestion("choice", "What would you like to do?", ["View Departments", "View Roles", "View Employees",
+    "Add Department", "Add Role", "Add Employee", "Update Employee Role", "Exit"])];
 
+const addDepartmentQuestions = [new InputQuestion("department_name", "What will be the new department?")];
+
+const addRoleQuestions = [new InputQuestion("title", "What will be the title of the new role?"), new InputQuestion("salary", "What is the salary amount?"),
+new ListQuestion("dept_id", "Select the department:", [1, 2, 3, 4, 5, 6])];
+
+const addEmployeeQuestions = [new InputQuestion("What is the employee's first name?"), new InputQuestion("What is the employee's last name?"),
+new ListQuestion("role_id", "Select the employee's role:", [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])];
+
+const updateEmployeeQuestions = [new InputQuestion("id", "Enter the employee's id:"), new InputQuestion("role_id", "Enter the new role id:")]
 module.exports = {
     menuQuestion,
     addDepartmentQuestions,
     addRoleQuestions,
-
+    addEmployeeQuestions,
+    updateEmployeeQuestions
 }
