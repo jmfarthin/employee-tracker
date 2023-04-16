@@ -2,7 +2,7 @@
 class Question {
     constructor(name, message) {
         this.name = name,
-        this.message = message
+            this.message = message
     }
 }
 
@@ -22,13 +22,13 @@ class ListQuestion extends Question {
 }
 
 // question arrays for inquirer prompt--each array 
-const addDepartmentQuestions =  [new InputQuestion("department_name", "What will be the new department?")]
+const menuQuestion = [new ListQuestion("choice", "What would you like to do?", ["Add Department", "View Department", "Exit"])]
+const addDepartmentQuestions = [new InputQuestion("department_name", "What will be the new department?")]
+const addRoleQuestions = [new InputQuestion("title", "What will be the new role title?"), new InputQuestion("salary", "What will be the role salary in numbers?")]
 
 module.exports = {
+    menuQuestion,
     addDepartmentQuestions,
-    addRoleQuestions: [
-        new InputQuestion("title", "What will be the new role title?"),
-        new InputQuestion("salary", "What will be the role salary in numbers?")
-    ],
-    menuQuestion: [new ListQuestion("choice", "What would you like to", ["Add Department", "View Department", "Exit"])]
+    addRoleQuestions,
+
 }
