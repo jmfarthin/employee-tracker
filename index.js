@@ -68,10 +68,10 @@ const viewTable = async (table) => {
 }
 
 const addDepartment = async () => {
-    const answers = await inquirer.prompt(addDepartmentQuestions)
-    console.log(answers)
-    //make a new department
-    viewDepartment()
+    const { name } = await inquirer.prompt(addDepartmentQuestions)
+    console.log(name);
+    // make a new department
+    viewTable('department');
 }
 
 // Role queries

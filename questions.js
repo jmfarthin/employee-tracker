@@ -25,7 +25,7 @@ class ListQuestion extends Question {
 const menuQuestion = [new ListQuestion("choice", "What would you like to do?", ["View Departments", "View Roles", "View Employees",
     "Add Department", "Add Role", "Add Employee", "Update Employee Role", "Exit"])];
 
-const addDepartmentQuestions = [new InputQuestion("department_name", "What will be the new department?")];
+const addDepartmentQuestions = [new InputQuestion("name", "What is the new dpartment name?")];
 
 const addRoleQuestions = [new InputQuestion("title", "What will be the title of the new role?"), new InputQuestion("salary", "What is the salary amount?"),
 new ListQuestion("dept_id", "Select the department:", [1, 2, 3, 4, 5, 6])];
