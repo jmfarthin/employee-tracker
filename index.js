@@ -75,12 +75,41 @@ const addDepartment = async () => {
     try {
         const { name } = await inquirer.prompt(addDepartmentQuestions)
         console.log(name);
-        const addDept = await connection.query(`INSERT INTO department (name) VALUES('${name}');`)
+        const newDept = await connection.query(`INSERT INTO department (name) VALUES('${name}');`)
     } catch (error) {
         console.log(error);
     }
     // make a new department
     viewTable('department');
+}
+
+const addRole = async () => {
+    try {
+        const { title, salary, dept_id } = await inquirer.prompt(addRoleQuestions)
+        const newRole = await connection.query(`INSERT INTO role (title, salary, dept_id) VALUES('${title}', ${salary}, '${dept_id}');`)
+    } catch (error) {
+        console.log(error)
+    }
+    viewTable('role');
+}
+const addEmployee = async () => {
+    try {
+        const { first, last, role, manager } = await inquirer.prompt(addEmployeeQuestions)
+        const newEmployee = await connection.query(`INSERT INTO employees (first_name, last_name, role_id, manager_id) VALUES('${first}', '${last}', ${role}, ${manager});`)
+    } catch (error) {
+        console.log(error)
+    }
+    viewTable('employees');
+}
+
+const updateEmployeeRole = async () => {
+    try {
+        const { id, role_id } = await inquirer.prompt(updateEmployeeQuestions);
+        const updateRole = await connection.query(`UPDATE employees SET role_id = '${role_id}' WHERE id = ${id};`)
+    } catch (error) {
+        error
+    }
+    viewTable('employees');
 }
 
 // Role queries
