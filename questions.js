@@ -34,10 +34,13 @@ const addEmployeeQuestions = [new InputQuestion("first", "What is the employee's
 new InputQuestion("role", "Enter the employee's role:"), new InputQuestion("manager", "Enter their manager's id:")];
 
 const updateEmployeeQuestions = [new InputQuestion("id", "Enter the employee's id:"), new InputQuestion("role_id", "Enter the new role id:")]
+
+const departmentBudgetQuestions = [new InputQuestion("id", "Enter the department id:")]
 module.exports = {
     menuQuestion,
     addDepartmentQuestions,
     addRoleQuestions,
     addEmployeeQuestions,
-    updateEmployeeQuestions
+    updateEmployeeQuestions,
+    departmentBudgetQuestions
 }

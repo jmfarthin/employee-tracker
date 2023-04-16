@@ -3,9 +3,11 @@ const cTable = require('console.table');
 const figlet = require('figlet');
 require('dotenv').config()
 
-const { addDepartmentQuestions, addRoleQuestions, menuQuestion, addEmployeeQuestions, updateEmployeeQuestions } = require("./questions")
+const { addDepartmentQuestions, addRoleQuestions, menuQuestion, addEmployeeQuestions, updateEmployeeQuestions, departmentBudgetQuestions } = require("./questions")
 var connection;
 
+
+// initializes the connection to database
 const init = async () => {
     figlet("Employee Tracker", (err, data) => {
         if (err) {
@@ -28,6 +30,7 @@ const init = async () => {
 }
 
 
+// main menu prompts
 const menu = async () => {
     var { choice } = await inquirer.prompt(menuQuestion)
     console.log(choice)
@@ -61,6 +64,8 @@ const menu = async () => {
 }
 
 // Department queries
+
+// function to view any table by using the table name as an argument
 const viewTable = async (table) => {
     try {
         const [rows, fields] = await connection.execute(`SELECT * FROM ${table}`);
@@ -71,6 +76,7 @@ const viewTable = async (table) => {
     }
 }
 
+// creates a new department
 const addDepartment = async () => {
     try {
         const { name } = await inquirer.prompt(addDepartmentQuestions)
@@ -83,6 +89,7 @@ const addDepartment = async () => {
     viewTable('department');
 }
 
+// creates a new role
 const addRole = async () => {
     try {
         const { title, salary, dept_id } = await inquirer.prompt(addRoleQuestions)
@@ -92,6 +99,7 @@ const addRole = async () => {
     }
     viewTable('role');
 }
+// to add an employee
 const addEmployee = async () => {
     try {
         const { first, last, role, manager } = await inquirer.prompt(addEmployeeQuestions)
@@ -102,6 +110,7 @@ const addEmployee = async () => {
     viewTable('employees');
 }
 
+// updates an employees role
 const updateEmployeeRole = async () => {
     try {
         const { id, role_id } = await inquirer.prompt(updateEmployeeQuestions);
@@ -111,10 +120,15 @@ const updateEmployeeRole = async () => {
     }
     viewTable('employees');
 }
-
-// Role queries
-// const viewRoles = async () => {
-
+// BONUS OBJECTIVES INCOMPLETE
+// const getDepartmentBudget = async () =>{
+//     try {
+//         const { id } = await inquirer.prompt(departmentBudgetQuestions);
+//         const sumDepartments = await connection.query(`SELECT SUM(salary)`)
+//     } catch (error) {
+//         console.log(error)
+//     }
 // }
+
 
 init()

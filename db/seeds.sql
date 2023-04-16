@@ -1,3 +1,5 @@
+--run each block separately, but in order
+-- if you do not, you will trigger an error
 USE employees_db;
 INSERT INTO department(name)
 VALUES ("Accounting"),
