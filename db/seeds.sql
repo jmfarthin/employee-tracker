@@ -18,13 +18,13 @@ VALUES ('Software Engineer', 90000.00, 2),
     ('Product Manager', 120000.00, 3),
     ('Event Planner', 60000.00, 6);
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES ('John', 'Smith', 71, NULL),
-    ('Mary', 'Jones', 72, NULL),
-    ('David', 'Lee', 73, NULL),
-    ('Sarah', 'Davis', 74, NULL),
-    ('Robert', 'Johnson', 75, NULL),
-    ('Karen', 'Wilson', 76, NULL),
-    ('Michael', 'Anderson', 77, NULL),
-    ('Jennifer', 'Brown', 78, NULL),
-    ('Richard', 'Taylor', 79, NULL),
-    ('Lisa', 'Martin', 80, NULL);
+VALUES ('John', 'Smith', 1, NULL),
+    ('Mary', 'Jones', 2, NULL),
+    ('David', 'Lee', 3, NULL),
+    ('Sarah', 'Davis', 4, NULL),
+    ('Robert', 'Johnson', 5, NULL),
+    ('Karen', 'Wilson', 6, NULL),
+    ('Michael', 'Anderson', 7, NULL),
+    ('Jennifer', 'Brown', 8, NULL),
+    ('Richard', 'Taylor', 9, NULL),
+    ('Lisa', 'Martin', 10, NULL);
