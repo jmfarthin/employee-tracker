@@ -62,14 +62,23 @@ const menu = async () => {
 
 // Department queries
 const viewTable = async (table) => {
-    const [rows, fields] = await connection.execute(`SELECT * FROM ${table}`);
-    console.table(rows);
-    menu()
+    try {
+        const [rows, fields] = await connection.execute(`SELECT * FROM ${table}`);
+        console.table(rows);
+        menu()
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 const addDepartment = async () => {
-    const { name } = await inquirer.prompt(addDepartmentQuestions)
-    console.log(name);
+    try {
+        const { name } = await inquirer.prompt(addDepartmentQuestions)
+        console.log(name);
+        const addDept = await connection.query(`INSERT INTO department (name) VALUES('${name}');`)
+    } catch (error) {
+        console.log(error);
+    }
     // make a new department
     viewTable('department');
 }

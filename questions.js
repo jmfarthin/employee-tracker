@@ -28,10 +28,10 @@ const menuQuestion = [new ListQuestion("choice", "What would you like to do?", [
 const addDepartmentQuestions = [new InputQuestion("name", "What is the new dpartment name?")];
 
 const addRoleQuestions = [new InputQuestion("title", "What will be the title of the new role?"), new InputQuestion("salary", "What is the salary amount?"),
-new ListQuestion("dept_id", "Select the department:", [1, 2, 3, 4, 5, 6])];
+new InputQuestion("dept_id", "Enter the department ID:")];
 
 const addEmployeeQuestions = [new InputQuestion("What is the employee's first name?"), new InputQuestion("What is the employee's last name?"),
-new ListQuestion("role_id", "Select the employee's role:", [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])];
+new InputQuestion("role_id", "Enter the employee's role:")];
 
 const updateEmployeeQuestions = [new InputQuestion("id", "Enter the employee's id:"), new InputQuestion("role_id", "Enter the new role id:")]
 module.exports = {
