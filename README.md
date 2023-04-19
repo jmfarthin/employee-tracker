@@ -18,6 +18,7 @@ Usage of this application assumes the following: that you have cloned the repo, 
 Then, from the command line:
 
 - 'npm i' to install depedencies
+- run the schema.sql and seed the database using seeds.sql 
 - 'node index.js' to run application
 
 You will be greeted by the name of the application and a menu that will intruct you on how to navigate the choices.
